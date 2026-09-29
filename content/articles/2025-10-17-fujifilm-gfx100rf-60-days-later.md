@@ -35,10 +35,17 @@ So what would possess me to acquire one of these engines of photography (besides
 - Dual card slots - always have a backup.
 - Kaizen - Fujifilm's history of adding features to existing cameras is very appealing to me as it keeps older models relevant for years. Hasselblad recently announced the X2D II with a full HDR workflow. I fully expect Fuji to retrofit something similar to the current crop of GFX cameras.
 
-![Fujifilm GFX100RF - 60 days later]({static}/images/fujifilm-gfx100rf-60-days-later/54818977124_5c8ced5237_6k.jpg)
-![Fujifilm GFX100RF - 60 days later]({static}/images/fujifilm-gfx100rf-60-days-later/54827599227_9c5593d02a_6k.jpg)
-![Fujifilm GFX100RF - 60 days later]({static}/images/fujifilm-gfx100rf-60-days-later/54846117358_a926521ed1_6k.jpg)
-![Fujifilm GFX100RF - 60 days later]({static}/images/fujifilm-gfx100rf-60-days-later/54853846979_06b076dbd1.jpg)
+<div class="gallery" markdown="1">
+
+[![Sample photo taken with the Fujifilm GFX100RF (1 of 4)](/thumbs/fujifilm-gfx100rf-60-days-later/54818977124_5c8ced5237_6k_index.jpg)]({static}/images/fujifilm-gfx100rf-60-days-later/54818977124_5c8ced5237_6k.jpg)
+
+[![Sample photo taken with the Fujifilm GFX100RF (2 of 4)](/thumbs/fujifilm-gfx100rf-60-days-later/54827599227_9c5593d02a_6k_index.jpg)]({static}/images/fujifilm-gfx100rf-60-days-later/54827599227_9c5593d02a_6k.jpg)
+
+[![Sample photo taken with the Fujifilm GFX100RF (3 of 4)](/thumbs/fujifilm-gfx100rf-60-days-later/54846117358_a926521ed1_6k_index.jpg)]({static}/images/fujifilm-gfx100rf-60-days-later/54846117358_a926521ed1_6k.jpg)
+
+[![Sample photo taken with the Fujifilm GFX100RF (4 of 4)](/thumbs/fujifilm-gfx100rf-60-days-later/54853846979_06b076dbd1_index.jpg)]({static}/images/fujifilm-gfx100rf-60-days-later/54853846979_06b076dbd1.jpg)
+
+</div>
 
 I am in no way claiming that this is THE perfect camera. Far from it. A relatively slow lens (f4), no IBIS, and the learning curve associated with medium format digital means you have your work cut out for you. You have to really find your groove to get this camera to produce quality images. It's not impossible. It just takes diligence.
 
