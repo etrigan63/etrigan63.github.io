@@ -5,8 +5,9 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *  # noqa
 
-# Custom domain mapped to this repo (see content/extra/CNAME).
-SITEURL = "https://www.echenique.com"
+# Staging URL until the www.echenique.com DNS cutover is done.
+# At cutover, switch back to SITEURL = "https://www.echenique.com".
+SITEURL = "https://etrigan63.github.io"
 RELATIVE_URLS = False
 
 FEED_ALL_ATOM = "feeds/all.atom.xml"
