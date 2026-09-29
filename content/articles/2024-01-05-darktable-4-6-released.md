@@ -1,0 +1,250 @@
+Title: darktable 4.6 released
+Date: 2024-01-05 03:41
+Author: Carlos Echenique
+Category: Photo News
+Tags: darktable, press release, software
+Slug: darktable-4-6-released
+Cover: images/darktable-4-6-released/darktable-icon-1.png
+Summary: On December 21, 2023 darktable 4.6 was released to the public. The following is a summary of the main features added to darktable 4.6. Please see the user manual for more details of the individual 
+![darktable 4.6 released]({static}/images/darktable-4-6-released/darktable-icon-1.png)
+
+On December 21, 2023 *darktable 4.6* was released to the public.
+
+The following is a summary of the main features added to darktable 4.6. Please see the user manual for more details of the individual changes (where available).
+
+- Editing history is now periodically auto-saved (every 10 seconds) while editing images in the darkroom view. The auto-save interval can be changed (via a preference) or auto-save can be disabled entirely (by setting the interval to 0).
+- A new processing module *rgb primaries* has been added. This module can be used for delicate color corrections as well as creative color grading. It allows the red, green and blue primary colors to be moved around using “hue” and “purity” controls. The underlying pixel operation is essentially the same as channel mixing.
+- In addition, the *sigmoid* module now includes a new *primaries* section, which can be used to gracefully handle difficult lighting situations (e.g. LEDs) and tune the overall look of the image. Modifying these parameters can provide pleasing sunsets, improved skin tones etc. This feature can only be used with sigmoid’s per-channel mode and is loosely based on ideas from Troy Sobotka’s [AgX](https://github.com/sobotka/AgX-S2O3?ref=echenique.com) and related work in the [Blender community](https://blenderartists.org/t/feedback-development-filmic-baby-step-to-a-v2/1361663?ref=echenique.com). The included “smooth” preset should provide a good starting point for further corrections using this feature.
+- When working with the liquify and retouch modules, the full uncropped image is now always shown, with any crop indicated by displaying an overlaid rectangle. This allows for cropped-out parts of the image to be used without having to first disable the crop module and re-enable it when finished.
+- When panning or zooming in the darkroom view, a low resolution placeholder used to be shown until the image was fully recalculated for the newly-visible region. Now, if any part of the previous view is still visible, that part will be immediately shown in high quality, with only the remainder of the image being temporarily shown in low quality until the pipe has finished. This has been achieved as part of a complete reworking of the darkroom image display, which has also removed some annoying jumps when replacing the low resolution placeholder with recalculated image data, or when switching between full and cropped view (when the crop, retouch or liquify modules are (un)focused).
+
+## Performance Improvements
+
+- OpenCL is now initialized in the background immediately after launching the darktable UI, with progress indicated by a series of toast messages. Previously, this was done before the main UI was launched, which could lead to significant delays (sometimes more than a minute) between the user opening darktable and anything appearing on-screen, making it appear as though darktable had failed to start. Note that processing will be slower (since darktable will only use the CPU) until OpenCL is fully initialized.
+- An OpenCL code path has been implemented for lens correction using embedded correction metadata.
+- Image display speed in the map view has been increased by 25%.
+- Export speed has been improved for JPEG 2000 and B&W TIFF images.
+- The chromatic aberrations module is now approximately 10% faster when run on the CPU.
+
+## Other Changes
+
+- The hot pixels module now supports monochrome images.
+- The internal compositional guide widget has been removed from the retouch module as it is not required (you can still display the guide globally).
+- A long-running import session can now be canceled by clicking on the cross in the progress bar on the bottom left of the screen.
+- Auto orientation is now supported when importing AVIF/HEIF images (requires at least libavif 0.9.2 and/or libheif 1.16.0).
+- It is now possible to visualize raster masks in the same way as other mask types by clicking the mask visualization icon.
+- The dual demosaic mask visualization and performance have been improved.
+- It is now possible to manually define additional vignette correction via the lens correction module.
+- The linear ProPhoto RGB color space can now be selected in the LUT 3D module.
+- The following changes have been made to the OpenCL implementation:
+  - Benchmarking code has been removed as it no longer produces valid results on today’s computers.
+  - The “pinned memory transfer” option has now been removed from the preferences dialog, though it can still be set on a per-device basis.
+  - A new option “use all device memory” has been added to the preferences dialog. Select this option to use all GPU memory, with the exception of a 600MB “headroom” which is left free for use by other applications. A similar option was previously available in earlier versions of darktable, however the headroom is now increased to 600MB to account for greater use of GPU acceleration on modern systems.
+  - A new set of options have been added to the preferences dialog, to allow selection of desired OpenCL drivers.
+- A built-in “Display P3” color profile has been added for use in input, output, display, working and soft-proofing profiles.
+- The highlight reconstruction module can now be used for all non-raw files.
+- The scroll speed in the filmstrip can now be increased by holding `Shift` while scrolling (filmstrip will move by half of the visible images at a time). Holding `Ctrl` while scrolling changes the number of images shown (zooms the filmstrip) and thereby also changes the speed achieved when holding `Shift`.
+- Exported PNG files now embed a CICP (Coding-Independent Code Points) encoded color profile in addition to ICC where possible.
+- Exported AVIF files now no longer embed a superfluous ICC profile if the color profile can be encoded as CICP.
+- Improved scaling and placement of images in the culling view now make better use of available screen space.
+- When hovering over the sample patches in the global color picker module those areas are displayed on the central image and on the histogram (if the corresponding option is selected). It is no longer necessary to have the color-picker activated when doing this. This enhanced behavior is useful, for example, when color grading.
+- It is now possible to display a tooltip for a slider or drop-down and a separate tooltip for the button to its right (commonly a color picker button). This was not possible in previous versions of darktable, and was an issue where the button was not directly linked to the slider (for example, a button for mask display).
+- Holding the `Ctrl` key while double clicking a slider or drop-down in a processing module now restores any auto-applied preset.
+- Where multiple drawn shapes are grouped (e.g. in a module’s mask) the mask manager module now displays a tick mark in front of the active combination mode (in the popup menu) when right-clicking one of the constituent shapes. This is usually much easier to read than the “Venn diagram” icons in the main module UI.
+- Mnemonics have been added to dialog boxes and default actions have been assigned, so that pressing `Enter` will trigger the correct action and close the dialog.
+- More OpenEXR 3.2.0 attributes can now be extracted and displayed in the image information module, where present.
+- Lens and cameras filters have been added to the collection filters module.
+- AVIF exports have been changed so that there is now no conversion to YUV for lossless. The quantizer selection logic has been updated and “lossy” is now the default.
+- The content of the main preferences dialog is now (almost) entirely taken from a single definition file (`darktableconfig.xml.in`) making its layout much easier to modify.
+- The drop-downs in the preferences dialog now use the same (bauhaus) widgets as the drop-downs in the rest of the application, offering a more consistent behavior.
+- The configuration system now has improved number precision.
+- The collections module has been reworked for more consistent sorting. All date/time sort orders can now be reversed (placing either the oldest or newest first). The film roll order can also be reversed when ordered by id (which is equivalent to the film roll’s first import date). The “sort film rolls by” preference has been renamed from “id” to “import time” to make this clearer. The collection filtering based on rating now uses proper text (like “rejected” instead of -1) and the numbers are replaced by stars. The collection module now displays color labels in the same order as in the rest of the UI.
+- Adding a tag to an image is now considered to be an “edit” and causes XMP sidecars to be created/updated (unless XMP creation is disabled).
+- New functionality has been added to automatically generate thumbnails in the background while the user is inactive in the lighttable view. Currently this functionality is only available by running `darktable-generate-cache` from the command-line. The new functionality is controlled via a preference setting that defines which thumbnail sizes to generate in the background (default “never”).
+- Two new variables have been introduced to allow the camera crop factor (“EXIF.CROP\_FACTOR”) and 35mm-equivalent focal length (“EXIF.FOCAL.LENGTH.EQUIV”) to be displayed.
+- Color harmony guides in the scopes module are now saved and restored for every image. It is therefore no longer necessary to reset the guides when going back to a previous edit. This information is also stored in the XMP file so can be viewed when sharing edits or re-importing a collection.
+- It is now possible to control chroma subsampling in JPEG exports. This allows the user to reduce the color resolution, often resulting in much smaller files that are virtually indistinguishable from images with more color information. On the other hand, certain images will look better when the chroma resolution is maximized. This includes images with small colored details surrounded by a solid background (such as screenshots with colored text).
+- The option to ignore JPEG files when importing is now outdated, given that many cameras can also output HEIF images. This option has therefore now been changed to ignore all non-raw files.
+- The lens correction module now supports embedded metadata from Olympus .ORF files for correction of distortion and chromatic aberration. This correction is equivalent to that applied by the camera body to in-camera JPEGs. For older bodies that do not apply chromatic aberration correction to the JPEGs, the required information is also excluded from the embedded metadata so darktable will be unable to apply corrections. Vignetting correction based on embedded metadata is not supported. However, if the camera’s “Shading Compensation” option is enabled, the vignetting correction will already have been applied to the data in the raw file.
+- The shortcuts system has received several refinements:
+  - Deleting or overwriting a default shortcut now moves it to the “disabled defaults” category from where it can restored by pressing `Delete`. It is no longer necessary to uncheck “load default shortcuts at startup” (in prefs/misc/interface) to keep it disabled.
+  - Visual mapping mode now has improved mouse cursors to indicate whether the widget under the cursor can have a shortcut assigned or be added to (or removed from) the quick access panel.
+  - The shortcuts tab in the preferences dialog now explains that it may be more convenient to use visual mapping mode.
+  - When combining a shortcut with a mouse move (for example `b+scroll`), separate actions can be triggered by up and down moves. For example, `b+scroll-up` could cycle through the top panel options and `b+scroll-down` through the bottom panel combinations.
+  - A problem with drop-down and slider popups opened via a shortcut, whereby they would immediately fill with the shortcut key character, was resolved. Those popups are now integrated into the shortcut system, so most non-alphanumeric shortcuts will continue to work. If a dropdown value is changed while the popup is open (for example via an automatic calculation in color calibration, a Lua script or a MIDI shortcut), the popup is correctly updated/repositioned. After a popup is closed it can quickly be reopened to enter another value by pressing `Enter` (as long as the corresponding widget still has focus).
+  - On macOS the system shortcuts e.g. for copy and paste will now work according to the macOS keyboard defaults, meaning using the `command` key instead of the original Linux style `control` key.
+- The ISO 12464 color assessment mode for the secondary preview window is now activated independently from the main window (and saved between sessions) with a toggle in the `right-click` popover of the “display second window” button (or using the default `alt+b` shortcut).
+
+## Bug Fixes
+
+- Fixed issues with the OpenCL platform checks that were causing freezes.
+- Fixed the size calculation of resizable widgets based on line size of their contents.
+- Fixed a bug in the collection filters module where the conjunction of multiple filters was not handled properly.
+- Fixed focus distance detection for Nikon Z mount lens corrections.
+- Fixed incorrect cropping of sensor data for sRaw dng files.
+- Apply the Lightroom color matrix only when importing a genuine Lightroom XMP sidecar file.
+- Fixed a crash when increasing the number of recent collections.
+- Fixed a crash when clicking+dragging the feather line on the path mask.
+- Fixed a crash when applying the CMYK soft-proof ICC profile.
+- The white borders for ISO 12464 color assessment (toggled with Ctrl+b) are now correctly sized and placed at all zoom levels and no longer flash when switching between low and high quality preview, both in the center view and secondary preview window.
+- Fixed an issue downloading to Piwigo when the “on conflict” option was set to “don’t check”.
+- Fixed several mouse scroll-wheel issues on macOS when used in combination with the Shift modifier key (color harmonies width, module height, geotagging date/time, …).
+- When loading an XMP sidecar file from disk, resolved an issue where the assigned “duplicate number” was already present in the database. This has been resolved by instead recalculating the “duplicate number” at import time for all duplicates.
+- For large collections on the lighttable and when using small thumbnails (more than 15 per line), using the scrollbar or scrolling the mouse to move up/down could be slow. The responsiveness of the lighttable in this scenario has now been drastically improved and is fast and responsive even with ~50k images and 20 thumbnails per line.
+- Fixed pixel errors in RAW Chromatic Aberration and LMMSE demosaic resulting in decreased noise.
+- Fixed the ‘avoid colorshift’ mode in the RAW Chromatic Aberrations module.
+- Fixed the snapshot module so that snapshots for removed images are no longer accessible – this was previously causing crashes when attempting to display a snapshot of a removed image.
+- Fixed a potential crash when using an unsupported ICC profile for soft-proofing.
+- Fixed multiple issues when computing borders in the framing module. For a 0% border on the bottom or right-hand side a single pixel border was sometimes shown, depending on the export size/zoom level. Note that a 0% border doesn’t necessarily mean no border at all if the chosen aspect ratio doesn’t correspond to the aspect ratio of the image.
+- The internal luminance mask in the tone equalizer has been made more resilient to distortion changes made with modules like lens correction, crop, etc. After activating a crop, the tone equalizer cursor will now show the proper mask luminance values when hovering over the image in the darkroom.
+- Fixed calculation of required graphics memory for modules performing blending operations, possibly avoiding crashes related to OpenCL.
+- Added the ability to calculate the crop factor for those cameras that do not include this information in their Exif metadata.
+- Fixed various bugs related to feathering masks.
+- Fixed a DPI scaling issue on macOS causing some GUI elements being rendered too small.
+
+## Lua
+
+### API Version
+
+- API version is now 9.2.0
+
+### Bug Fixes
+
+- Fixed `scripts_installer` to handle user names with spaces on Windows.
+
+### Add action support for Lua
+
+### Other Lua changes
+
+- Allow access to image `change_timestamp`.
+
+## Notes
+
+- When exporting to AVIF, EXR, JPEG XL, or XCF, selecting specific metadata (e.g. geo-tag or creator) is not currently possible. For AVIF, EXR, JPEG XL, and XCF formats, darktable will not include any metadata fields unless the user selects all of the checkboxes in the export module’s preference options.
+- In order to support the correct display of numbers in darktable, the minimum supported Gtk version has had to be increased to 3.24.15. For people who need to build darktable with an older version, this can be achieved by removing line 241 of the `darktable.css` file on your system. See [https://github.com/darktable-org/darktable/issues/13166](https://github.com/darktable-org/darktable/issues/13166?ref=echenique.com).
+- Starting with release 4.4 a new support policy regarding macOS versions has been put in place – darktable releases will now only support those macOS versions that are also supported by Apple. Release 4.6 therefore drops support for macOS versions older than 12.5.
+
+## Changed Dependencies
+
+### Mandatory
+
+- ???
+
+### Optional
+
+- Bump libavif to 0.9.2
+
+## RawSpeed changes
+
+## Camera support, compared to 4.4
+
+### Base Support
+
+- Canon EOS Kiss F
+- Canon EOS Kiss X50
+- Canon EOS Kiss X90
+- Canon IXY 220F (dng, chdk)
+- Canon PowerShot SX220 HS (chdk)
+- Fujifilm FinePix SL1000
+- Fujifilm X-S20 (compressed)
+- ImBack ImB35mm (chdk)
+- Leica M10-D (dng)
+- Leica M10-P (dng)
+- Leica M10-R (dng)
+- Leica M11-P (dng)
+- Leica Q2 Monochrom (dng)
+- Leica SL2 (dng)
+- Leica SL2-S (dng)
+- Nikon Coolpix A1000 (12bit-uncompressed)
+- Nikon Z f (14bit-compressed)
+- OM System TG-7
+- Panasonic DC-TZ200D (3:2)
+- Panasonic DC-TZ202D (3:2)
+- Panasonic DC-TZ220 (3:2)
+- Panasonic DC-TZ220D (3:2)
+- Panasonic DC-ZS200D (3:2)
+- Panasonic DC-ZS220 (3:2)
+- Panasonic DC-ZS220D (3:2)
+- Panasonic DMC-G10 (3:2, 16:9, 1:1)
+- Panasonic DMC-GM1S (4:3, 3:2, 16:9, 1:1)
+- Pentax K-3 Mark III Monochrome
+- Pentax KF
+- Samsung EK-GN120
+- Samsung G920F (dng)
+- Samsung G935F (dng)
+- Samsung GX10 (dng)
+- Samsung GX20 (dng)
+- Sigma fp (dng)
+- Sigma fp L (dng)
+- Sigma sd Quattro (dng)
+- Sigma sd Quattro H (dng)
+- Sinar eVolution 75
+- Sony ILCE-6700
+- Sony ILCE-7CM2
+- Sony ILCE-7CR
+- Sony ILME-FX3
+- Sony ZV-E1
+
+### White Balance Presets
+
+- Leica M (Typ 240)
+- Olympus E-P7
+- Olympus TG-6
+- Sony ILCE-7CM2
+
+### Noise Profiles
+
+- Canon IXY 220F
+- Nikon Z f
+- Olympus E-P7
+- Pentax \*ist DS
+- Sony ILCE-6700
+
+### Missing Compression Mode Support
+
+- Apple ProRAW DNGs
+- CinemaDNG lossless (Blackmagic, DJI, etc.)
+- Fujifilm lossy RAFs
+- Nikon high efficiency NEFs
+- Samsung Expert RAW DNGs
+- Sony downsized lossless ARWs (“M” for full-frame, “S” for full-frame & APS-C)
+
+### Suspended Support
+
+Support for the following cameras is suspended because no samples are available on raw.pixls.us:
+
+- Creo/Leaf Aptus 22(LF3779)/Hasselblad H1
+- Fujifilm FinePix S9600fd
+- Fujifilm IS-1
+- GoPro FUSION
+- Kodak EasyShare Z980
+- Leaf Aptus-II 5(LI300059)/Mamiya 645 AFD
+- Leaf Credo 60
+- Leaf Credo 80
+- Minolta DiMAGE 5
+- Olympus SP320
+- Panasonic DMC-FX150
+- Pentax Q10
+- Phase One IQ250
+- Sinar Hy6/ Sinarback eXact
+- ST Micro STV680
+
+## Translations
+
+- Albanian
+- Brazilian Portuguese
+- Chinese (Simplified)
+- Chinese (Traditional)
+- Czech
+- Dutch
+- European Spanish
+- Finnish
+- French
+- German
+- Hungarian
+- Italian
+- Japanese
+- Polish
+- Russian
+- Slovenian
+- Ukrainian

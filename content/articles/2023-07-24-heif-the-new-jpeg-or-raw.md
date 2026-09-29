@@ -1,0 +1,53 @@
+Title: heif: the new jpeg or raw?
+Date: 2023-07-24 16:06
+Author: Carlos Echenique
+Category: Editorial
+Tags: darktable, fuji, heif, x-h2, x-t5
+Slug: heif-the-new-jpeg-or-raw
+Cover: images/heif-the-new-jpeg-or-raw/hif.png
+Summary: Does the High Efficiency Image Format have the chops to dethrone JPEG as the standard for in-camera processed images?
+![heif: the new jpeg or raw?]({static}/images/heif-the-new-jpeg-or-raw/xt5.png)
+
+![heif: the new jpeg or raw?]({static}/images/heif-the-new-jpeg-or-raw/hif.png)
+
+Since the dawn of the graphical user interface, computer users were always on a quest to show better images on their screens. The problem was image file size. Back in the early 90's, you were quite the techno-hipster if you had a 28kbps dial up connection and had connections with the US Defense Department if you had something faster. This is an IV drip compared to the multi-gigabit data torrents available to many consumers these days. Since getting a fatter connection was financially out of the question for most, the IEEE formed the Joint Photographic Engineering Group to figure out how to make high-color, high-resolution images much smaller than their TIFF counterparts. Working like badgers, the group published their specification and the JPEG file format was born. However, the spec is not a panacea and while it is ubiquitous, it has several well known shortcomings.
+
+### Fast forward to the digital camera revolution.
+
+Early cameras adopted the JPEG file format exclusively and that became a barrier to entry for the professional photographer who, entrenched in the world of analog film, did not want to give up the flexibility having a film negative gave them. Camera makers responded with digital SLR cameras that were able to save in other file formats including TIFF and the native RAW file the camera's sensor would produce. This latter development (no pun intended), with the addition of software applications to non-destructively edit the raw images and camera bodies that would allow pros to use their existing stable of lenses, is what opened the floodgates and started the practically wholesale conversion of the professional photo industry over to digital photos.  In 2015 the "Moving Pictures Experts Group" (aka MPEG) published the finalized specs for the "High Efficiency Image File" format.
+
+### Fast forward to the smartphone revolution.
+
+Apple ushered in this particular revolution and many, many competitors followed suit. All of these devices contained cameras of ever increasing quality with the ability to not only take photos but videos as well. However, these devices were hamstrung at first by a lack of storage (solid state drives lagged way behind their "spinning rust" counterparts) and someone had to science their way out of it. By about the time of the iPhone 7, Apple adpopted the *High Efficiency Image File*, or HEIF format for short, and inserted it into the newly released iPhone (there is an advantage to owning the ball, the bat, the mitts, bases, baseball stadium, the concession stands and the surrounding parking lot) and updated iOS 11 to seamlessly process them. The file was more compressed than an equivalent JPEG, supported 10-bit color long before anyone else, and lossless to boot. The only shortcoming was that it was not well supported outside of Apple's walled garden.
+
+### Fast forward to present day.
+
+Despite its flaws, pretty much all digital cameras to this day retain the ability to save images in JPEG. It's still that ubiquitous. However, some camera makers (\*cough\* Fujifilm \*cough\*) have made the HEIF file format available on their cameras. Just a quick setting change and your JPEG files are now being saved as HEIF files. *Adobe Photoshop, Adobe Lightroom, and the open-source darktable* all support the HEIF file format with more and more being added every day. This is a good thing.
+
+### Why not use RAW, smart guy?
+
+RAW files are amazing things in the hands of a professional who has a complete understanding of the strengths and weaknesses of the format. Exposure errors, white balance gaffs, and host of other things that can go wrong (short of leaving the lens cap on) can be addressed in post-production. But it also has the potential of becoming a crutch. "Fix it in post" is not a mantra I endorse. It promotes sloppy photography and leads to an endless parade of mediocre images. "Get in right in the camera." is what I practice and it is what I teach my students. Let's face it, I prefer to be out capturing images instead of being trapped in front of my computer post-processing images. Ansel Adams loved working in the darkroom. I am not Ansel Adams. Another shortcoming of shooting in RAW is that all of the fabulous film simulations provided in-camera by Fuji are aspirational only as the RAW file does not record that bit of post-processing in itself. I have shot RAW+JPEG for many years and I could never nail the look exactly.
+
+Shortly after I picked up my X-T5 for walkabout camera duties, I discovered the option to record in HEIF instead of JPEG. Thus began my journey into the world of film simulations that frustrated me so often in the past. HEIF's lossless 10-bit recording with baked in film simulations is an excellent "RAW-lite substitute", providing editable source files that can be easily exported to JPEG for general consumption. The space savings are significant vs RAW (12.7Mb vs 47.9Mb in most cases - a 75% space reduction) also making it faster to load into memory for editing.
+
+The left image above was shot in RAF and converted to JPG (with default settings) using *darktable*. The image on the right was saved in HEIF format with the Provia film simulation and exported to JPG using *darktable*. Both images were taken simultaneously with my X-H2 + TTArtisan 27mm f/2.8 lens writing RAW to the CFExpress card and HEIF to the SD card.
+
+Since both images are shot with the Standard (Provia) profile, they are the closest in appearance. It's when you start using other film simulations that things get tricky.
+
+Here we have another pair of images this time with the Velvia simulation activated. Again RAF on the left and HEIF on the right and the same rules as before. The RAF discarded the simulation information and has the Provia profile applied. The HEIF file has the Velvia "baked in" and is preserved even with the JPG export. A lot less work and a lossless format to boot.
+
+### Hardware Support
+
+According to [Wikipedia](https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format?ref=echenique.com#Hardware), the following hardware supports HEIF:
+
+- The [Canon EOS-1D X Mark III](https://en.wikipedia.org/wiki/Canon_EOS-1D_X_Mark_III?ref=echenique.com), [Canon EOS R5](https://en.wikipedia.org/wiki/Canon_EOS_R5?ref=echenique.com), [Canon EOS R6](https://en.wikipedia.org/wiki/Canon_EOS_R6?ref=echenique.com) and [Canon EOS R8](https://en.wikipedia.org/wiki/Canon_EOS_R8?ref=echenique.com) cameras use the HEIF format to capture images in an [HDR display format](https://en.wikipedia.org/wiki/High-dynamic-range_television?ref=echenique.com) that use the [PQ](https://en.wikipedia.org/wiki/Perceptual_Quantizer?ref=echenique.com) tone curve, [BT.2100](https://en.wikipedia.org/wiki/Rec._2100?ref=echenique.com) color primaries and 10-bit.[[55]](https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format?ref=echenique.com#cite_note-55)[[56]](https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format?ref=echenique.com#cite_note-56) "We've moved on to HEIF files," Canon said in 2019.[[57]](https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format?ref=echenique.com#cite_note-57)
+- The [Sony α1](https://en.wikipedia.org/wiki/Sony_%CE%B11?ref=echenique.com)[[58]](https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format?ref=echenique.com#cite_note-58) and [Sony α7 IV](https://en.wikipedia.org/wiki/Sony_%CE%B17_IV?ref=echenique.com)[[59]](https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format?ref=echenique.com#cite_note-59) offer capturing images in 10-bit HEIF format with an HDR format that uses [HLG](https://en.wikipedia.org/wiki/HLG10?ref=echenique.com).
+- The [Fujifilm X-H2S](https://en.wikipedia.org/wiki/Fujifilm_X-H2S?ref=echenique.com)[[60]](https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format?ref=echenique.com#cite_note-60), [Fujifilm X-H2](https://en.wikipedia.org/wiki/Fujifilm_X-H2?ref=echenique.com)[[61]](https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format?ref=echenique.com#cite_note-61), and [Fujifilm X-T5](https://en.wikipedia.org/wiki/Fujifilm_X-T5?ref=echenique.com)[[62]](https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format?ref=echenique.com#cite_note-62) offers a choice of JPEG or 10-bit HEIF file formats.
+- The [Nikon Z9](https://en.wikipedia.org/wiki/Nikon_Z9?ref=echenique.com) and [Nikon Z8](https://en.wikipedia.org/w/index.php?title=Nikon_Z8&action=edit&redlink=1&ref=echenique.com) offer 10-bit HEIF file formats.
+- Multiple Qualcomm Snapdragon SoCs support capturing images in HEIC format (e.g. Snapdragon 888,[[63]](https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format?ref=echenique.com#cite_note-63) Snapdragon 662[[64]](https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format?ref=echenique.com#cite_note-64)). Some of their latest SoCs also support capturing in HEIC with HDR (e.g. Snapdragon 8 Gen 1,[[65]](https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format?ref=echenique.com#cite_note-65) Snapdragon 780[[66]](https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format?ref=echenique.com#cite_note-66)).
+- The [iPhone 7](https://en.wikipedia.org/wiki/IPhone_7?ref=echenique.com) and later devices from [Apple](https://en.wikipedia.org/wiki/Apple_Inc.?ref=echenique.com) can capture media in HEIF or HEVC format.[[67]](https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format?ref=echenique.com#cite_note-67)
+- [Android](https://en.wikipedia.org/wiki/Android_(operating_system)?ref=echenique.com) smartphones like [Xiaomi 12](https://en.wikipedia.org/wiki/Xiaomi_12?ref=echenique.com), [OPPO Reno 7 5G](https://en.wikipedia.org/wiki/Oppo_Reno?ref=echenique.com), [Samsung Galaxy S21 5G](https://en.wikipedia.org/wiki/Samsung_Galaxy_S21?ref=echenique.com) can capture images in HEIF format.
+
+### Conclusion
+
+While JPEG reigns supreme for cross-platform compatibility, and RAW for post-processing flexibility, HEIF weighs in with features the modern photographer wants: lossless images that are vastly smaller than RAW, 10-bit color, and in the case of Fuji cameras, benefit from advanced film simulations baked into the images. For paid photo shoots, I will shoot RAW + HEIF, but for my personal work HEIF meets all of my needs.

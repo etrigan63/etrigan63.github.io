@@ -1,0 +1,3 @@
+pelican[markdown]>=4.9,<5
+pelican-photos>=1.6
+pelican-thumbnailer>=1.0

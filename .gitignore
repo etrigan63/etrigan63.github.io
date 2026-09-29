@@ -1,0 +1,12 @@
+# Python / Pelican
+__pycache__/
+*.py[cod]
+output/
+cache/
+*.egg-info/
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
