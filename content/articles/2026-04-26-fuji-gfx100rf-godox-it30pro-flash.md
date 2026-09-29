@@ -53,23 +53,23 @@ Here is a gallery of images taken using my GFX100RF+iT30Pro:
 
 <div class="gallery" markdown="1">
 
-![Maker Faire Miami 2026 (1 of 9)]({static}/images/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1165.jpg)
+[![Maker Faire Miami 2026 (1 of 9)](/thumbs/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1165_index.jpg)]({static}/images/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1165.jpg)
 
-![Maker Faire Miami 2026 (2 of 9)]({static}/images/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1171.jpg)
+[![Maker Faire Miami 2026 (2 of 9)](/thumbs/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1171_index.jpg)]({static}/images/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1171.jpg)
 
-![Maker Faire Miami 2026 (3 of 9)]({static}/images/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1174.jpg)
+[![Maker Faire Miami 2026 (3 of 9)](/thumbs/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1174_index.jpg)]({static}/images/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1174.jpg)
 
-![Maker Faire Miami 2026 (4 of 9)]({static}/images/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1175.jpg)
+[![Maker Faire Miami 2026 (4 of 9)](/thumbs/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1175_index.jpg)]({static}/images/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1175.jpg)
 
-![Maker Faire Miami 2026 (5 of 9)]({static}/images/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1176.jpg)
+[![Maker Faire Miami 2026 (5 of 9)](/thumbs/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1176_index.jpg)]({static}/images/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1176.jpg)
 
-![Maker Faire Miami 2026 (6 of 9)]({static}/images/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1177.jpg)
+[![Maker Faire Miami 2026 (6 of 9)](/thumbs/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1177_index.jpg)]({static}/images/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1177.jpg)
 
-![Maker Faire Miami 2026 (7 of 9)]({static}/images/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1186.jpg)
+[![Maker Faire Miami 2026 (7 of 9)](/thumbs/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1186_index.jpg)]({static}/images/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1186.jpg)
 
-![Maker Faire Miami 2026 (8 of 9)]({static}/images/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1189.jpg)
+[![Maker Faire Miami 2026 (8 of 9)](/thumbs/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1189_index.jpg)]({static}/images/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1189.jpg)
 
-![Maker Faire Miami 2026 (9 of 9)]({static}/images/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1190.jpg)
+[![Maker Faire Miami 2026 (9 of 9)](/thumbs/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1190_index.jpg)]({static}/images/fuji-gfx100rf-godox-it30pro-flash/GFX100RF-20260425-1190.jpg)
 
 </div>
 
