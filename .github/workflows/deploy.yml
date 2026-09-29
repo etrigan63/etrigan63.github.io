@@ -18,20 +18,30 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out site
+        uses: actions/checkout@v4
+        with:
+          path: site
+      - name: Check out Flex theme (matches local ../Flex layout)
+        uses: actions/checkout@v4
+        with:
+          repository: etrigan63/Flex
+          path: Flex
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Install dependencies
+        working-directory: site
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Build site
+        working-directory: site
         run: pelican -s publishconf.py
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: output
+          path: site/output
 
   deploy:
     environment:
